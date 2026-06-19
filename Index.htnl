@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Our Story ❤️</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(135deg,#ff5f8f,#7b2ff7);overflow:hidden;color:#fff}
+.stars,.stars:after{position:fixed;inset:0;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:40px 40px;opacity:.3;content:""}
+.wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+.card{background:rgba(255,255,255,.12);backdrop-filter:blur(10px);padding:30px;border-radius:24px;max-width:520px;text-align:center;box-shadow:0 0 30px rgba(0,0,0,.25)}
+h1{font-size:2.2rem}.heart{font-size:70px;animation:beat 1s infinite}
+@keyframes beat{50%{transform:scale(1.15)}}
+#msg{min-height:120px;white-space:pre-line;font-size:1.1rem}
+button{padding:12px 22px;border:none;border-radius:30px;margin:10px;font-size:18px;cursor:pointer}
+#yes{background:#2ecc71;color:#fff}#no{background:#ff4d6d;color:#fff;position:relative}
+.f{position:fixed;font-size:24px;animation:up 5s linear forwards}
+@keyframes up{from{transform:translateY(100vh)}to{transform:translateY(-10vh);opacity:0}}
+</style>
+</head>
+<body>
+<div class="stars"></div>
+<div class="wrap">
+<div class="card">
+<div class="heart">❤️</div>
+<h1>For You</h1>
+<div id="msg"></div>
+<button id="yes">Yes 💍</button>
+<button id="no">No 🙈</button>
+</div></div>
+<script>
+const text=`Dear Mahi,
+
+Every smile of yours makes my day brighter.
+Every moment with you feels special.
+
+Will you make me the happiest person
+by being my gurl?
+Your name carries a Wish, and my heart carries Mahwish. I don't wish for anything else, because you are my only Wish. 🌹
+
+❤️ Yours,
+M. Shah Faisal`;
+let i=0;const m=document.getElementById("msg");
+(function t(){if(i<text.length){m.textContent+=text[i++];setTimeout(t,40);}})();
+
+const no=document.getElementById("no");
+no.onmouseover=()=>{no.style.position="fixed";no.style.left=Math.random()*(innerWidth-120)+"px";no.style.top=Math.random()*(innerHeight-60)+"px";}
+
+document.getElementById("yes").onclick=()=>{
+document.body.innerHTML=`<div class="wrap"><div class="card"><h1>🎉 She Said YES! 🎉</h1><div class="heart">💖</div><h2>You made my world complete.</h2></div></div>`;
+setInterval(()=>{
+let h=document.createElement("div");h.className="f";h.textContent=["❤️","💖","🌹","✨"][Math.floor(Math.random()*4)];
+h.style.left=Math.random()*100+"vw";document.body.appendChild(h);
+setTimeout(()=>h.remove(),5000);
+},120);
+}
+</script>
+</body></html>
